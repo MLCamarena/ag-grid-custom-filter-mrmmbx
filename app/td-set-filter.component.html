@@ -1,0 +1,33 @@
+<div class="ag-filter">
+  <div>
+    <div class="ag-filter-body-wrapper">
+      <div ref="ag-filter-loading" class="loading-filter ag-hidden">
+        Loading...
+      </div>
+      <div>
+        <div id="richList" class="ag-set-filter-list">
+          <div class="ag-virtual-list-viewport">
+            <div
+              class="ag-virtual-list-container"
+              [attr.style.height]="containerHeight"
+            >
+              <div
+                style="display: flex; flex-direction: row"
+                *ngFor="let item of onFilterValuesChanged$ | async"
+                (click)="toggleItem(item)"
+              >
+                <input
+                  type="radio"
+                  name="filter-item"
+                  [id]="item"
+                  [value]="item"
+                />
+                <label [for]="item">{{ item }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
